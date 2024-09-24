@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>My Pizza Cafe</h1>
+        <form action="" method="post">
+
+            <div class="step1">
+                <h2>Step 1: Enter your Name, Address, and Phone Number:</h2>
+                <div class="data-group">
+                    <div class="name">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" class="long-input">
+                    </div>
+                    <div class="address1">
+                        <label for="address">Address:</label>
+                        <input type="text" id="address" class="long-input">
+                    </div>
+                    <div class="address2">
+                        <label for="city">City:</label>
+                        <input type="text" id="city" class="short-input">
+                        <label for="state">State:</label>
+                        <input type="text" id="state" class="short-input">
+                        <label for="zip">Zip:</label>
+                        <input type="text" id="zip" class="short-input">
+                    </div>
+                    <div class="phone">
+                        <label for="phone">Phone:</label>
+                        <input type="text" id="phone" class="long-input">
+                    </div>
+                </div>
+            </div>
+
+            <div class="step2">
+                <h2>Step 2: Select the size of Pizza you want:</h2>
+                <div class="size-group">
+                    <div class="size-option">
+                        <input type="radio" id="small" name="pizza-size">
+                        <label for="small">Small</label>
+                    </div>
+                    <div class="size-option">
+                        <input type="radio" id="medium" name="pizza-size">
+                        <label for="medium">Medium</label>
+                    </div>
+                    <div class="size-option">
+                        <input type="radio" id="large" name="pizza-size">
+                        <label for="large">Large</label>
+                    </div>
+                </div>
+            </div>            
+
+            <div class="step3">
+                <h2>Step 3: Select Pizza Toppings you want:</h2>
+                <div class="toppings-group">
+                    <div class="topping">
+                        <input type="checkbox" id="pepperoni">
+                        <label for="pepperoni">Pepperoni</label>
+                    </div>
+                    <div class="topping">
+                        <input type="checkbox" id="sausage">
+                        <label for="sausage">Sausage</label>
+                    </div>
+                    <div class="topping">
+                        <input type="checkbox" id="mushroom">
+                        <label for="mushroom">Mushrooms</label>
+                    </div>
+                    <div class="topping">
+                        <input type="checkbox" id="pineapple">
+                        <label for="pineapple">Pineapple</label>
+                    </div>
+                    <div class="topping">
+                        <input type="checkbox" id="bo">
+                        <label for="bo">Black Olives</label>
+                    </div>
+                    <div class="topping">
+                        <input type="checkbox" id="meatball">
+                        <label for="meatball">Meatball</label>
+                    </div>
+                </div>
+            </div>            
+
+            <div class="btns">
+                <div class="submit">
+                    <a href="">Submit</a>
+                </div>
+                <div class="clear">
+                    <a href="">Clear Entries</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
