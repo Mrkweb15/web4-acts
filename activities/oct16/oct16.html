@@ -66,6 +66,7 @@
 <body>
     <h1>Programming Quiz</h1>
     <div class="quiz">
+        <h2 id="topic">Topic</h2>
         <h2 id="questions">Question here</h2>
         <span id="questionInfo">Question 1 / 5</span>
         <div class="choices">
@@ -87,7 +88,165 @@
 
     <script type="text/javascript">
         var quiz = [
-        {
+
+            //HTML quiz
+            {
+                question: "What does HTML stand for?",
+                choices: ["Hypertext Markup Language.", "hyper tiktok Mobile Legends", "hypertext More Language", "Hyper Telegram moment lang"],
+                answer: "A"
+            },
+            {
+                question: "Who is making the Web standards?",
+                choices: ["Mozilia", "Google", "World Wide Web Consortium", "Microsof"],
+                answer: "C"
+            },
+            {
+                question: "Choose the correct HTML element for the largest heading:",
+                choices: ["h1", "h6", "heading", 'head'],
+                answer: "A"
+            },
+            {
+                question: "What is the correct HTML element for inserting a line break?",
+                choices: ["break", "bl", "br", "hr"],
+                answer: "C"
+            },
+            {
+                question: "What is the correct HTML for adding a background color?",
+                choices: ["background-color: yellow;", "background-color= yellow;", "background: yellow;", "A and C"],
+                answer: "D"
+            },
+            {
+                question: "Choose the correct HTML element to define important text",
+                choices: ["strong", "important", "priority", "B and C"],
+                answer: "A"
+            },
+            {
+                question: "Choose the correct HTML element to define emphasized text",
+                choices: ["em", "i", "italic", "bold"],
+                answer: "B"
+            },
+            {
+                question: "Which character is used to indicate an end tag?",
+                choices: [";", "&", "/", "A and C"],
+                answer: "C"
+            },
+            {
+                question: "Which element is not a table element",
+                choices: ["th", "td", "tbody", "header"],
+                answer: "D"
+            },
+            {
+                question: "h5 is the same size as the p with bold property?",
+                choices: ["True", "False", "Sometimes", "both True and False"],
+                answer: "A"
+            },
+
+            //CSS quiz
+            {
+                question: "CSS Stands for?",
+                choices: ["Cast Soft Screen", "Cast To Screen", "Cascading Style Sheet", "All of the above"],
+                answer: "C"
+            },
+            {
+                question: ". is use to identify a what?",
+                choices: ["id", "class", "tags", "both A and B"],
+                answer: "C"
+            },
+            {
+                question: "# is use to identify a what?",
+                choices: ["id", "class", "tags", "both A and B"],
+                answer: "A"
+            },
+            {
+                question: "Both . and # are called?",
+                choices: ["Indexing", "Functions", "Identifier", "Class"],
+                answer: "C"
+            },
+            {
+                question: "To displa a text in the center you need to ?",
+                choices: ["text-align: center;", "align-text: center;", "justify-content: center;", "display: center;"],
+                answer: "A"
+            },
+            {
+                question: "When styling a tag/s it changes the style for?",
+                choices: ["The body of the html layout", "All the same tags", "All the tags with the same id", "All the tages with the same class"],
+                answer: "B"
+            },
+            {
+                question: "id can be applied to multiple tags",
+                choices: ["Yes if the same tags", "Yes id have the same class", "No, its function si to make a unique identifier", "No, tags cant be the same"],
+                answer: "C"
+            },
+            {
+                question: "Which of the following is not an identifier?",
+                choices: ["id", "class", "tag", "Non of the following"],
+                answer: "D"
+            },
+            {
+                question: "Same class can be applied multiple times",
+                choices: ["True", "True, if they have the same id", "False", "False, if the tag have no id"],
+                answer: "A"
+            },
+            {
+                question: "Which of the following is not a value of display?",
+                choices: ["flex", "absolut", "B and A", "Non of the following"],
+                answer: "A"
+            },
+
+            //JavaScrip quiz
+            {
+                question: "",
+                choices: [""],
+                answer: "A"
+            },
+            {
+                question: "",
+                choices: [""],
+                answer: "A"
+            },
+            {
+                question: "",
+                choices: [""],
+                answer: "A"
+            },
+            {
+                question: "",
+                choices: [""],
+                answer: "A"
+            },
+            {
+                question: "",
+                choices: [""],
+                answer: "A"
+            },
+            {
+                question: "",
+                choices: [""],
+                answer: "A"
+            },
+            {
+                question: "",
+                choices: [""],
+                answer: "A"
+            },
+            {
+                question: "",
+                choices: [""],
+                answer: "A"
+            },
+            {
+                question: "",
+                choices: [""],
+                answer: "A"
+            },
+            {
+                question: "",
+                choices: [""],
+                answer: "A"
+            },
+
+            //PHP quiz
+            {
                 question: "What does PHP stand for?",
                 choices: ["Personal Home Page", "Private Home Page", "PHP: Hypertext Preprocessor", "Programming Home Page"],
                 answer: "C"
@@ -136,17 +295,13 @@
                 question: "How do you comment in PHP?",
                 choices: ["// comment", "# comment", "/* comment */", "All of the above"],
                 answer: "D"
-            },
-            {
-                question: "What is the correct way to define an array in PHP?",
-                choices: ["$array = array();", "array[];", "$array[] = '';", "$array = {};"],
-                answer: "A"
             }
         ];
 
         var quesPointer = 0, score = 0;
 
         function loadQuestion() {
+
             document.getElementById("questions").innerHTML = quiz[quesPointer].question;
             document.getElementById("optionA").innerHTML = quiz[quesPointer].choices[0];
             document.getElementById("optionB").innerHTML = quiz[quesPointer].choices[1];
@@ -157,6 +312,16 @@
 
             document.getElementById("result").innerHTML = "";
             document.getElementById("nextQuest").style.display = "none";
+
+            if(quesPointer < 10){
+                document.getElementById("topic").innerHTML = "About HTML"
+            } else if(quesPointer < 20) {
+                document.getElementById("topic").innerHTML = "About CSS"
+            } else if(quesPointer < 30) {
+                document.getElementById("topic").innerHTML = "About JavaScript"
+            } else {
+                document.getElementById("topic").innerHTML = "About PHP"
+            }
         }
 
         function SubAns(response) {
