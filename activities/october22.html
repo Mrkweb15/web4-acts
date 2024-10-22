@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery act</title>
+    <script src="jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1 id="hText">Web 4 nye nye</h1>
+    <form action="">
+        <label for="">Name:</label>
+        <input type="text" id="name"><br>
+        <label for="">Course:</label>
+        <input type="text" id="course"><br>
+        <label for="">Religion:</label>
+        <input type="text" id="religion">
+    </form><br>
+    <p id="formhere">Form Here</p>
+    <button id="formOpenClose">Open form</button><br><br>
+
+    <button id="btnChange">Change</button>
+    <button id="btnHideShow">Hide</button>
+</body>
+<script>
+    $(document).bind("contextmenu", function(){
+        return false;
+    });
+    $(document).ready(function(){ 
+        $("#btnChange").click(function(){
+            
+            if($(this).text() === "Change"){
+                $("#hText").text("Hello");
+                $("body").css("background-color","orange");
+                $(this).text("Revert");
+            }else{
+                $("#hText").text("Web 4 nye nye");
+                $("body").css("background-color","white");
+                $(this).text("Change")
+            }
+            
+        });
+
+        $("#btnHideShow").click(function(){
+            if($("#btnHideShow").text() === "Hide"){
+                $("#hText").css("opacity", "0");
+                $("#btnHideShow").text("Show");
+            }else{
+                $("#hText").css("opacity", "1");
+                $("#btnHideShow").text("Hide");
+            }
+        });
+        
+        $("#hText").dblclick(function(){
+            $(this).css("opacity", "0");
+            $("#btnHideShow").text("Show");
+        });
+
+        //button mouse over and leave
+        $("button").mouseover(function(){
+            $(this).css("background-color","yellow");
+        });
+
+        $("button").mouseleave(function(){
+            $(this).css("background-color","white");
+        });
+
+        //input box focus
+        $("input").focus(function(){
+            $(this).css("background-color", "lightblue")
+        });
+        $("input").blur(function(){
+            $(this).css("background-color", "white")
+        });
+
+        //toggle
+        $("#formOpenClose").click(function(){
+            $("form").toggle();
+            $("#formhere").toggle();
+        });
+
+        $("form").hide(1000,function(){
+            $("#formhere").show();
+        });
+
+        $("#formOpenClose").click(function(){
+            if($("#formOpenClose").text()== "Close form"){
+                $("#formOpenClose").text("Open form")
+            }else{
+                $("#formOpenClose").text("Close form")
+            }
+            
+        });
+        
+    });
+
+    
+</script>
+</html>
