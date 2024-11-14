@@ -1,0 +1,44 @@
+[
+    {
+        "name": "Mark Nga",
+        "age": 22,
+        "sex": "Male",
+        "address": "Dito Samin"
+    },
+    {
+        "name": "Lei Angel",
+        "age": 20,
+        "sex": "Female",
+        "address": "Doon Sa Kanila"
+    },
+    {
+        "name": "John Doe",
+        "age": 30,
+        "sex": "Male",
+        "address": "123 Elm Street"
+    },
+    {
+        "name": "Jane Smith",
+        "age": 25,
+        "sex": "Female",
+        "address": "456 Oak Avenue"
+    },
+    {
+        "name": "Emily Johnson",
+        "age": 40,
+        "sex": "Female",
+        "address": "789 Pine Road"
+    },
+    {
+        "name": "Michael Brown",
+        "age": 35,
+        "sex": "Male",
+        "address": "101 Maple Blvd"
+    },
+    {
+        "name": "Sarah Davis",
+        "age": 28,
+        "sex": "Female",
+        "address": "202 Birch Lane"
+    }
+]
