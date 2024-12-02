@@ -101,9 +101,9 @@
     <div class="exercise">
         <h3 class="title">Exercise 6:</h3>
         <?php
-            for ($i = 1; $i <= 12; $i++) {
-                for ($j = 1; $j <= 12; $j++) {
-                    echo "$i * $j = " . ($i * $j) . "<br>";
+            for ($l = 1; $l <= 12; $l++) {
+                for ($m = 1; $m <= 12; $m++) {
+                    echo "$l * $m = " . ($l * $m) . "<br>";
                 }
                 echo "<br>";
             }
