@@ -1,0 +1,101 @@
+<?php
+include 'database.php';
+
+class CRUD {
+
+    private $conn; 
+    public function __construct() { 
+        $database = new Database(); 
+        $this->conn = $database->getConnection(); 
+    }
+
+    public function create($table, $data) {
+        try {
+            $columns = implode(", ", array_keys($data));
+            $placeholders = ":" . implode(", :", array_keys($data));
+            $sql = "INSERT INTO $table ($columns) VALUES ($placeholders)";
+            $stmt = $this->conn->prepare($sql);
+
+            foreach ($data as $key => $val) {
+                $stmt->bindValue(":$key", $val);
+            }
+
+            return $stmt->execute();
+        } catch (PDOException $e) {
+            error_log("Create Error: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function read($table, $conditions = []) {
+        try {
+            $sql = "SELECT * FROM `$table`";
+            if (!empty($conditions)) {
+                $whereClause = [];
+                foreach ($conditions as $key => $value) {
+                    $whereClause[] = "$key = :$key";
+                }
+                $sql .= " WHERE " . implode(" AND ", $whereClause);
+            }
+            $stmt = $this->conn->prepare($sql);
+            foreach ($conditions as $key => $val) {
+                $stmt->bindValue(":$key", $val);
+            }
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            error_log("Read Error: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function update($table, $data, $conditions) {
+        try {
+            $updateFields = [];
+            foreach ($data as $key => $value) {
+                $updateFields[] = "`$key` = :$key";
+            }
+
+            $whereClause = [];
+            foreach ($conditions as $key => $value) {
+                $whereClause[] = "`$key` = :where_$key";
+            }
+
+            $sql = "UPDATE `$table` SET " . implode(", ", $updateFields) . " WHERE " . implode(" AND ", $whereClause);
+            $stmt = $this->conn->prepare($sql);
+
+            foreach ($data as $key => $val) {
+                $stmt->bindValue(":$key", $val);
+            }
+            foreach ($conditions as $key => $val) {
+                $stmt->bindValue(":where_$key", $val);
+            }
+
+            return $stmt->execute();
+        } catch (PDOException $e) {
+            error_log("Update Error: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function delete($table, $conditions) {
+        try {
+            $whereClause = [];
+            foreach ($conditions as $key => $value) {
+                $whereClause[] = "`$key` = :$key";
+            }
+            $sql = "DELETE FROM `$table` WHERE " . implode(" AND ", $whereClause);
+            $stmt = $this->conn->prepare($sql);
+
+            foreach ($conditions as $key => $val) {
+                $stmt->bindValue(":$key", $val);
+            }
+
+            return $stmt->execute();
+        } catch (PDOException $e) {
+            error_log("Delete Error: " . $e->getMessage());
+            return false;
+        }
+    }
+}
+?>
